@@ -1,0 +1,19 @@
+﻿<nav class="explore">
+    <ul>
+        <li><a>Explore</a></li>
+        <li><img src="~/img/flash-thunder.svg" alt="" /><a>New In</a></li>
+    </ul>
+</nav>
+
+<nav class="categories">
+    <ul>
+        @using (@Html.BeginForm("search", "Shopping", FormMethod.Get))
+        {
+            <li><img src="~/img/flash-thunder.svg" alt="" />@Html.ActionLink("New In", "Index", "Shopping", new { @id = "a" })</li>
+            <li><img src="~/img/clothing.svg" alt="" /><a>@Html.ActionLink("Hoodies", "category", new { @cat = "Hoodies" }, new { @id = "a" })</a></li>
+            <li><img src="~/img/shoes.svg" alt="" /><a>@Html.ActionLink("Shoes", "category", new { @cat = "Shoes" }, new { @id = "a" })</a></li>
+            <li><img src="~/img/laptops.svg" alt="" /><a>@Html.ActionLink("laptops", "category", new { @cat = "laptops" }, new { @id = "a" })</a>           </li>
+            <li><img src="~/img/handbag.svg" alt="" /><a>@Html.ActionLink("Bags", "category", new { @cat = "Bags" }, new { @id = "a" })</a></li>
+        }
+    </ul>
+</nav>

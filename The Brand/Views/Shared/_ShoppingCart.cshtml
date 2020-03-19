@@ -1,0 +1,13 @@
+﻿
+        @if (Session["CartCounter"] == null)
+        {
+            @Html.ActionLink("Cart:0", "ShoppingCart", "Shopping", new { id = "cartItem" })
+
+        }
+        else
+        {
+            @Html.ActionLink("Cart:" + Session["CartCounter"] , "ShoppingCart", "Shopping", new { id = "cartItem" })
+
+        }
+
+

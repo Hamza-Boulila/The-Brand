@@ -1,0 +1,43 @@
+﻿@model IEnumerable<The_Brand.ViewModel.ShoppingViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+
+
+<script type="text/javascript">
+    function AddToCart(item) {
+        var itemId = $(item).attr("itemid");
+        var formData = new FormData();
+        formData.append("ItemId", itemId);
+
+        function showToast(message, timeout, type) {
+            type = (typeof type === 'undefined') ? 'info' : type;
+            toastr.options.timeOut = timeout;
+            toastr[type](message);
+        }
+        $.ajax({
+            async: true,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: formData,
+            url: '/Shopping/Index',
+            success: function (data) {
+                if (data.Success) {
+                    $("#cartItem").text("Cart:" + data.Counter);
+                    showToast('Added', 1000, 'success');
+                }
+            },
+            error: function () {
+                alert("There is some Problem.");
+            }
+        });
+    }
+</script>
+
+@Html.Partial("_cat")
+
+@Html.Partial("_items")

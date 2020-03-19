@@ -1,0 +1,80 @@
+﻿@model IEnumerable<The_Brand.ViewModel.ShoppingCartModel>
+@{
+    ViewBag.Title = "ShoppingCart";
+    decimal TotalAmount = 0.00M;
+}
+
+<nav class="addcart">
+    <img src="~/img/shopping-cart.svg" alt="cart" /><span>Cart</span>
+    <span id="back">@Html.ActionLink("Continue shopping", "Index")</span>
+</nav>
+
+
+
+@using (Html.BeginForm("AddOrder", "Shopping", FormMethod.Post))
+{
+    if (Session["CartItem"] != null)
+    {
+        <div class="add">
+            <nav>
+                <ul>
+                    <li>Product</li>
+                    <li>Name</li>
+                    <li>Price</li>
+                    <li>Quantite</li>
+                    <li>Total price</li>
+                </ul>
+            </nav>
+
+            @foreach (var item in Model)
+            {
+                TotalAmount += item.Total;
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <img src="@Url.Content(item.ImagePath)" class="grid-Pic" alt="" />
+                    </div>
+                    <div class="grid-item">
+                        <h3>@item.ItemName</h3>
+                    </div>
+                    <div class="grid-item">
+                        <div class="grid-price">$@item.UnitPrice.ToString("#,##0.00")</div>
+                    </div>
+                    <div class="grid-item">
+                        @item.Quantity.ToString("#,##0")
+                    </div>
+                    <div class="grid-item">
+                        <div id="Total" class="grid-price">$@item.Total.ToString("#,##0.00")</div>
+                    </div>
+                    <div class="remove">
+                        <a href="@Url.Action("RemovefromCart","Shopping",new { ItemId = item.ItemId })" id="a">
+                            <img src="~/img/cross-remove.svg" style="width: 14px;" /> <span class="text">Remove</span>
+                        </a>
+                    </div>
+
+                </div>
+            }
+            <div class="ttl-container">
+                <div class="grid-TOTAL">
+                    <div id="Total" class="grid-TTL">
+                        TOTAL :
+                        <div class="d">$@TotalAmount.ToString("#,##0.00")</div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="CheckOut" name="Save" class="btn-add" id="SaveOrder" />
+        </div>
+
+    }
+
+    else
+    {
+        <div class="add">
+            <div class="grid-containerx">
+                <div class="grid-item">
+                    <div style="background-color: #f3f3f3;">votre cart est vide</div>
+                </div>
+            </div>
+        </div>
+    }
+}

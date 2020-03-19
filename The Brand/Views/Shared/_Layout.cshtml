@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brand</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/stylecart.css" rel="stylesheet" />
+    <link href="~/css/add.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="/Shopping"><img src="~/img/Logo.png" /></a>
+            <div class="Search">
+                @using (@Html.BeginForm("search", "Shopping", FormMethod.Get))
+                {
+                    @Html.TextBox("Search", null, new { @class = "textSrch", @placeholder = "Search for items, brands" })
+                    <img src="~/img/search-svgrepo-com.svg" class="srch" alt="search" />
+                }
+            </div>
+            <div class="Admin-Cont">
+                <div class="Admin"><a href="/Login/Index" id="a">I'm Admin</a></div>
+            </div>
+            <nav>
+                <div class="Cart">
+                    <div class="color" style="position: absolute; top: 60px; right: 18%;">
+                        <img src="~/img/shopping-cart.svg" alt="cart" /><span id="cart">@Html.Partial("_ShoppingCart")</span>
+                    </div>
+                </div>
+                <div class="User">
+                    <img src="~/img/user.svg" alt="User" /><span>Sign in</span>
+                </div>
+            </nav>
+        </header>
+
+        <section>
+            @RenderBody()
+        </section>
+
+        <footer>
+            <a href="/Shopping"><img src="~/img/Logo.png" /></a>
+            <p>
+                Copyright © 2020, All Rights Reserved.
+            </p>
+            <span class="realized">
+                realized by :
+                <a class="name"> Hamza Boulila</a>
+            </span>
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+</body>
+</html>

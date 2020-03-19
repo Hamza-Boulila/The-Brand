@@ -1,0 +1,98 @@
+@font-face {
+    font-family: "Reem Kufi";
+    src: url("../fonts/Reem_Kufi/ReemKufi-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Righteous";
+    src: url("../fonts/Righteous/Righteous-Regular.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Reem Kufi", sans-serif;
+}
+header {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+header img {
+  cursor: pointer;
+  margin-top: 38px;
+  margin-left: 101px;
+}
+header .Logo {
+  position: relative;
+  right: 4%;
+  top: 30%;
+}
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+section {
+  position: absolute;
+  background: #f1f1f1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section form {
+  background: #ffffff00;
+  width: 500px;
+  height: 455px;
+  padding: 50px 70px 50px 50px;
+}
+h3 {
+  position: relative;
+  color: #000000;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 25px;
+}
+div img {
+    position: absolute;
+    right: 48%;
+    top: 16.5%;
+    width: 28px;
+}
+input {
+  margin: 10px;
+}
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 11px 10px;
+        font-size: 18px;
+    }
+.btn {
+  margin-left: 10px;
+}
+
+input[type="submit"] {
+    margin: 10px 0;
+    width: 103%;
+    padding: 15px;
+    margin-bottom:10px;
+    border: none;
+    background: #cf0000;
+    color: #d8d8d8;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+input[type="submit"]:hover {
+    color: #ffffff;
+    background-color: red;
+}
+.label {
+    font-size: 19px;
+    margin: 0 12px;
+    display: block;
+}

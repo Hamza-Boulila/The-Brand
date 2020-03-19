@@ -1,0 +1,125 @@
+﻿@model The_Brand.ViewModel.ItemViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+
+
+<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-1.8.0.min.js"></script>
+
+<span id="h2">Add New Product</span>
+
+<div class="new-Pro">
+    <div class="col">
+        <div class="group">
+            Category :  @Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.CategorySelectListItem, "Value", "Text"),
+new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col">
+        <div class="group">
+            Item Code :
+            @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control", autocomplete = "Off" })
+        </div>
+    </div>
+    <div class="col">
+        <div class="group">
+            Item Name :
+            @Html.TextBoxFor(model => model.ItemName, new { @class = "form-control", autocomplete = "Off" })
+        </div>
+    </div>
+    <div class="col">
+        <div class="group">
+            Description :
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control", autocomplete = "Off" })
+        </div>
+    </div>
+    <div class="col">
+        <div class="group">
+            Item Price :
+            @Html.TextBoxFor(model => model.ItemPrice, new { @class = "form-control", autocomplete = "Off" })
+        </div>
+    </div>
+    <div class="col">
+        <div class="group">
+            Image :
+            @Html.TextBoxFor(model => model.ImagePath, new { type = "file", @class = "form-control" })
+        </div>
+    </div>
+    <div>
+        <input type="button"
+               value="Save"
+               name="save"
+               class="btn-save"
+               id="btnSave" />
+        &nbsp;
+        <input type="button" value="Reset" name="reset" class="btn-Reset" id="Reset" />
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSave").click(function () {
+            SaveItem();
+        });
+        $("#Reset").click(function () {
+            ResetItem();
+        });
+    });
+
+    function showToast(message, timeout, type) {
+        type = (typeof type === 'undefined') ? 'info' : type;
+        toastr.options.timeOut = timeout;
+        toastr[type](message);
+    }
+
+    function ResetItem() {
+        $("#CategoryId").val("1");
+        $("#ItemCode").val("");
+        $("#ItemName").val("");
+        $("#Description").val("");
+        $("#ItemPrice").val("");
+        $("#ImagePath").val("");
+    }
+
+    function SaveItem() {
+        var formData = new FormData();
+        formData.append("CategoryId", $("#CategoryId").val());
+        formData.append("ItemCode", $("#ItemCode").val());
+        formData.append("ItemName", $("#ItemName").val());
+        formData.append("Description", $("#Description").val());
+        formData.append("ItemPrice", $("#ItemPrice").val());
+        formData.append("ImagePath", $("#ImagePath").get(0).files[0]);
+        $.ajax({
+            async: true,
+            dataType: "JSON",
+            type: "POST",
+            contentType: false,
+            processData: false,
+            url: '/AddItem/Index',
+            data: formData,
+            success: function (data) {
+                if (data.Success) {
+                    showToast(data.Message, 2000, 'success');
+                    ResetItem();
+                }
+            },
+            error: function () {
+                showToast('There is a problem to add Item', 2000, 'error');
+            }
+        });
+
+    }
+
+
+</script>
+

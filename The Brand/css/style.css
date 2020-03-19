@@ -1,0 +1,325 @@
+/* font-family: 'Reem Kufi', sans-serif;
+font-family: 'Righteous', cursive; */
+@font-face {
+    font-family: "Reem Kufi";
+    src: url("../fonts/Reem_Kufi/ReemKufi-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Righteous";
+    src: url("../fonts/Righteous/Righteous-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Reem Kufi", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:link {
+        text-decoration: none;
+    }
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+/* header */
+header {
+    height: 125px;
+}
+
+    header img {
+        cursor: pointer;
+    }
+
+    header .Search {
+        position: absolute;
+        left: 39%;
+        top: 57px;
+    }
+
+    header .textSrch {
+        position: relative;
+        width: 460px;
+        height: 28px;
+        border: none;
+        outline: none;
+        padding-left: 33px;
+        padding-top: 1px;
+        font-size: 18px;
+    }
+
+    header .srch {
+        position: absolute;
+        height: 20px;
+        top: 3px;
+        left: 5px;
+    }
+
+    header nav {
+        margin-top: 5px;
+        float: right;
+    }
+    /* start admin */
+    header .Admin-Cont {
+        float: right;
+    }
+
+    header .Admin {
+        right: 6%;
+        font-size: 14px;
+        position: absolute;
+        top: 6px;
+    }
+    /* end admin */
+    header nav .Cart {
+        cursor: pointer;
+    }
+
+        header nav .Cart span {
+            position: absolute;
+            margin: 0 8px;
+            top: 2px;
+        }
+
+            header nav .Cart span a {
+                color: black;
+            }
+
+.c {
+    transform: rotateY(-180deg);
+}
+
+header nav .User {
+    cursor: pointer;
+    padding: 5px 30px;
+    margin-right: 30px;
+}
+
+    header nav .User span {
+        position: absolute;
+        margin: 0 8px;
+        top: 9.3%;
+    }
+
+header nav img {
+    width: 25px;
+    transform: rotateY(180deg)
+}
+/* section */
+
+section .explore ul li:first-child {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+section .explore ul li:last-child {
+    position: relative;
+    display: inline-block;
+    margin-left: 200px;
+    left: 0;
+}
+
+section .explore ul li img {
+    position: absolute;
+    height: 30px;
+    left: -25px;
+    top: 2px;
+}
+
+section .explore ul li a {
+    font-family: "Righteous", cursive;
+    font-size: 22px;
+}
+
+section .categories {
+    position: absolute;
+    top: 36%;
+    width: 200px;
+    color: black;
+}
+
+    section .categories ul li {
+        position: relative;
+        display: block;
+        padding: 11px;
+        font-size: 17px;
+        color: black;
+        margin-left: 10px;
+    }
+
+        section .categories ul li img {
+            width: 20px;
+            cursor: pointer;
+        }
+
+        section .categories ul li:first-child a {
+            position: absolute;
+            color: black;
+            top: 9px;
+            left: 44px;
+        }
+
+        section .categories ul li:nth-child(2) a {
+            position: absolute;
+            color: black;
+            top: 17px;
+            left: 44px;
+        }
+
+        section .categories ul li:last-child a {
+            position: absolute;
+            color: black;
+            top: 10px;
+            left: 44px;
+        }
+
+        section .categories ul li a {
+            cursor: pointer;
+            color: black;
+            position: absolute;
+            top: 13px;
+            left: 44px;
+        }
+
+            section .categories ul li a:visited,
+            section .categories ul li a:active,
+            section .categories ul li a:any-link {
+                color: black;
+            }
+
+#a {
+    color: black;
+}
+
+    #a:visited,
+    #a:active,
+    #a:any-link {
+        color: black;
+    }
+/**/
+article {
+    position: relative;
+    left: 25%;
+    top: 20px;
+    width: 900px;
+}
+
+.Product-Card {
+    box-sizing: border-box;
+    width: 280px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    margin: 8px;
+    padding: 40px;
+    display: inline-table;
+    text-transform: uppercase;
+}
+
+    .Product-Card h1 {
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+
+    .Product-Card p {
+        font-size: 13px;
+        color: #bbb;
+    }
+
+.Product-Pic {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.Product-info {
+    display: flex;
+    align-items: center;
+}
+
+.Product-price {
+    color: #222222;
+    font-size: 24px;
+    padding: 5px;
+}
+
+.Product-button {
+    margin-left: auto;
+    color: #494949;
+    text-decoration: none;
+    border: 2px solid #494949;
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    transition: 0.4s linear;
+}
+
+    .Product-button:hover {
+        color: #e4e4e4;
+        border: 2px solid #000;
+        background: #000000;
+    }
+
+footer {
+    position: relative;
+    margin-top: 50px;
+    height: 70px;
+}
+
+    footer img {
+        cursor: pointer;
+        float: left;
+        margin-top: 13px;
+    }
+
+    footer p {
+        position: absolute;
+        line-height: 70px;
+        left: 40%;
+    }
+
+    footer .realized {
+        position: absolute;
+        right: 6%;
+        margin-top: 15px;
+        line-height: 40px;
+    }
+
+    footer span .name {
+        position: relative;
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
+    footer .realized .name:hover {
+        color: #000000e1;
+        transition: 500ms ease;
+    }
+
+    footer .realized .name::after {
+        content: "";
+        width: 0%;
+        height: 2px;
+        background-color: #ff1414;
+        position: absolute;
+        right: 50%;
+        bottom: 0;
+        transition: all 500ms ease;
+    }
+
+    footer .realized .name:hover::after {
+        width: 100%;
+        right: 0%;
+    }

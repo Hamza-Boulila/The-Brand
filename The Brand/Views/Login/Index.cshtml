@@ -1,0 +1,48 @@
+﻿@model The_Brand.Models.Users
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <img src="~/img/Logo.png" alt="The brand Logo"/>
+        <span class="Logo">ADMIN</span>
+    </header>
+    <section>
+        <div>
+            @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+            {
+                <img src="~/img/red.png" alt="" />
+                <h3>LOGIN</h3>
+                <span class="label">@Html.LabelFor(model => model.UserName)</span>
+                @Html.EditorFor(model => model.UserName)
+                <span class="error">@Html.ValidationMessageFor(model => model.UserName)</span>
+                <span class="label">@Html.LabelFor(model => model.Password)</span>
+                @Html.EditorFor(model => model.Password)
+                <span class="error">@Html.ValidationMessageFor(model => model.Password)</span>
+                <span class="error">@Html.DisplayFor(model => model.LoginErrorMessage)</span>
+                <div class="btn">
+                    <input type="submit" value="login" />
+                </div>
+            }
+        </div>
+    </section>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
+
+

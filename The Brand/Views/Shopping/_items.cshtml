@@ -1,0 +1,14 @@
+﻿<article>
+    @foreach (var item in Model)
+    {
+        <div class="Product-Card">
+            <h1>@item.ItemName</h1>
+            <p>@item.Description</p>
+            <img src="@Url.Content(@item.ImagePath)" class="Product-Pic" alt="" />
+            <div class="Product-info">
+                <div class="Product-price">@item.ItemPrice.ToString("#,##0.00 $")</div>
+                <input type="button" name="AddToCart" value="Add to Cart" class="Product-button" itemid="@item.ItemId" id="btnAddToCart" onclick="AddToCart(this)" />
+            </div>
+        </div>
+    }
+</article>
